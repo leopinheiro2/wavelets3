@@ -25,6 +25,9 @@ f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_
 st.write("Frequency = ", f, "Hz")
 t, y = ricker (f)
 
+phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
+st.write("Phi = ", phi)
+
 chart_data = pd.DataFrame(
    {
        "t": t,
