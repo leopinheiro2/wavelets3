@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 #from scipy.signal import hilbert, chirp
 import math
+pi = math.pi
 
 st.title('Ricker wavelet')
 st.text('This is a web app to display wavelets - select parameters.')
@@ -28,10 +29,18 @@ t, y = ricker (f)
 phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
 st.write("Phi = ", phi)
 
+z= hilbert(y) #form the analytical signal
+inst_amplitude = np.abs(z) #envelope extraction
+inst_phase = np.unwrap(np.angle(z))#inst phase
+
+phase = phi * pi/180
+x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
+
 chart_data = pd.DataFrame(
    {
        "t": t,
-       "y": y
+       #"y": y
+       "y": x_rotate
    }
 )
 
