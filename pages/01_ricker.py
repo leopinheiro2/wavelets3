@@ -29,6 +29,9 @@ t, y = ricker (f)
 phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
 st.write("Phi = ", phi)
 
+str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
+st.subheader(str1)
+
 z= hilbert(y) #form the analytical signal
 inst_amplitude = np.abs(z) #envelope extraction
 inst_phase = np.unwrap(np.angle(z))#inst phase
