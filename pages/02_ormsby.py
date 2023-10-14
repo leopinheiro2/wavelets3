@@ -54,10 +54,18 @@ st.write("Phi = ", phi)
 
 t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
+z= hilbert(y) #form the analytical signal
+inst_amplitude = np.abs(z) #envelope extraction
+inst_phase = np.unwrap(np.angle(z))#inst phase
+
+phase = phi * pi/180
+x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
+
 chart_data = pd.DataFrame(
    {
        "t": t,
-       "y": y
+       #"y": y
+       "y": x_rotate
    }
 )
 
