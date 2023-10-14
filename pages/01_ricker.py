@@ -30,7 +30,7 @@ phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value
 #st.write("Phi = ", phi)
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = "Frequency: " + str(int(f + 0.5)) + " Hz, Phase rotation: " + str(int(phi+0.5)) + "°"
+str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
 
 z= hilbert(y) #form the analytical signal
