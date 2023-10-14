@@ -23,14 +23,14 @@ def ricker(f, length=0.512, dt=0.001):
 
 #st.subheader("f(t) = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))")
 f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240.)
-st.write("Frequency = ", f, "Hz")
+#st.write("Frequency = ", f, "Hz")
 t, y = ricker (f)
 
 phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
-st.write("Phi = ", phi)
+#st.write("Phi = ", phi)
 
-str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = "Frequency: " + str(int(f + 0.5)) + "Hz, Phase rotation: " + str(int(phi+0.5))
+#str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
+str1 = "Frequency: " + str(int(f + 0.5)) + "Hz, Phase rotation: " + str(int(phi+0.5)) + "deg"
 st.subheader(str1)
 
 z= hilbert(y) #form the analytical signal
