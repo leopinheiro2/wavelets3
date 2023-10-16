@@ -59,7 +59,7 @@ t, y = Klauder(T, f1, f2, 0.512, 0.001)
 #st.write("Phi = ", phi)
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, " + str(int(T + 0.5))   + " Phase " + str(int(phi+0.5)) + "°"
+str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, " + str(int(T + 0.5))   + " sec, Phase " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
 
 z= hilbert(y) #form the analytical signal
