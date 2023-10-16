@@ -39,15 +39,13 @@ st.latex(r'''
     Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
+col1, col2 = st.beta_columns(2)
+with col1:
+    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240.)
 
-#st.latex(r'''
- #   a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} =
-  #  \sum_{k=0}^{n-1} ar^k =
- #   a \left(\frac{1-r^{n}}{1-r}\right)
- #   ''')
-
-f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240.)
-f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240.)
+with col2:
+    f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240.)
+    
 T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10.)
 
 st.write(f1, " - ", f2, "Hz, T =", T, " s")
