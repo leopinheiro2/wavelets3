@@ -2,10 +2,9 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-#from scipy.signal import hilbert, chirp 
+from scipy.signal import hilbert
 import math
 import cmath
-
 pi = math.pi
 
 def ORMSBY(f1=5., f2=10., f3=40., f4=45., length=0.512, dt=0.001):
@@ -33,7 +32,7 @@ def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
     return t, y
 
 st.title('Klauder wavelet')
-st.text('This is a web app do display wavelets')
+st.text('This is a web app do display wavelets. Change wavlet parameters and rotate phase with sliders.')
 
 #st.subheader("f(t) = ...")
 st.latex(r'''
@@ -57,6 +56,20 @@ st.write(f1, " - ", f2, "Hz, T =", T, " s")
 #f2 = 10
 
 t, y = Klauder(T, f1, f2, 0.512, 0.001)
+
+phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
+#st.write("Phi = ", phi)
+
+str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
+#str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
+st.subheader(str1)
+
+z= hilbert(y) #form the analytical signal
+inst_amplitude = np.abs(z) #envelope extraction
+inst_phase = np.unwrap(np.angle(z))#inst phase
+
+phase = phi * pi/180
+x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
 
 chart_data = pd.DataFrame(
    {
