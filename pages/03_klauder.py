@@ -41,11 +41,11 @@ st.latex(r'''
     ''')
 col1, col2 = st.columns(2)
 with col1:
-    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240.)
-    T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10.)
+    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=41., format="%.1f")
+    T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
 
 with col2:
-    f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240.)
+    f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     
 
@@ -59,7 +59,7 @@ t, y = Klauder(T, f1, f2, 0.512, 0.001)
 #st.write("Phi = ", phi)
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, Phase " + str(int(phi+0.5)) + "°"
+str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, " + str(int(T + 0.5))   + " Phase " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
 
 z= hilbert(y) #form the analytical signal
