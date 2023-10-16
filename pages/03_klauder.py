@@ -32,7 +32,7 @@ def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
     return t, y
 
 st.title('Klauder wavelet')
-st.text('This is a web app do display wavelets. Change wavlet parameters and rotate phase with sliders.')
+#st.text('Change wavlet parameters and rotate phase with sliders.')
 
 #st.subheader("f(t) = ...")
 st.latex(r'''
@@ -61,7 +61,7 @@ phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value
 #st.write("Phi = ", phi)
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
+str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, Phase rotation " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
 
 z= hilbert(y) #form the analytical signal
@@ -74,7 +74,8 @@ x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
 chart_data = pd.DataFrame(
    {
        "t": t,
-       "y": y
+       #"y": y
+       "y": x_rotate
    }
 )
 
