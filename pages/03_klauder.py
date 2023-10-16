@@ -46,7 +46,7 @@ with col1:
 
 with col2:
     f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240.)
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45.)
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%3.f")
     
 
 #st.write(f1, " - ", f2, "Hz, T =", T, " s")
