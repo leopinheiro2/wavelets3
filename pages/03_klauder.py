@@ -39,7 +39,7 @@ st.latex(r'''
     Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
-col1, col2 = st.beta_columns((1,1))
+col1, col2 = st.columns(2)
 with col1:
     f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240.)
 
