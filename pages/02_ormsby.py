@@ -42,11 +42,14 @@ st.latex(r'''
 #f2 = 10
 #f3 = 60
 #f4 = 70.
+col1, col2 = st.columns(2)
+with col1:
+    f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240.)
+    f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240.)
 
-f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240.)
-f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240.)
-f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240.)
-f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240.)
+with col2:
+    f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240.)
+    f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240.)
 st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
 phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
