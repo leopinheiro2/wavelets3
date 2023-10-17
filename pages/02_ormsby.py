@@ -56,7 +56,7 @@ chart_data = pd.DataFrame(
    {
        "t": t,
        #"y": y
-       "y": x_rotate
+       "y": [x_rotate, inst_amplitude]
    }
 )
 
