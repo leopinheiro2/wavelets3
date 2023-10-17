@@ -60,7 +60,7 @@ chart_data = pd.DataFrame(
    }
 )
 
-st.line_chart(chart_data, x="t", y="y")
+st.line_chart(chart_data, x="t", y=["x_rotate", "inst_amplitude"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
