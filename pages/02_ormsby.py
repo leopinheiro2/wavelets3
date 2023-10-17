@@ -54,6 +54,8 @@ st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
 phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
 st.write("Phi = ", phi)
+str1 = "ORMSBY " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
+st.subheader(str1)
 
 t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
