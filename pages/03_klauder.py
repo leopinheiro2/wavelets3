@@ -41,7 +41,7 @@ st.latex(r'''
     ''')
 col1, col2 = st.columns(2)
 with col1:
-    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=41., format="%.1f")
+    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
 
 with col2:
