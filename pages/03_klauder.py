@@ -31,7 +31,7 @@ def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
 
     return t, y
 
-st.title('Klauder wavelet')
+st.title('Klauder wavelet') 
 st.text('A web app to display wavelets')
 
 #st.subheader("f(t) = ...")
