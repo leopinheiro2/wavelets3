@@ -66,18 +66,17 @@ if envelope:
        }
     )
 
-st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
+    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
 
 else:
     chart_data = pd.DataFrame(
        {
            "t": t,
-           #"y": y
            "y": x_rotate
        }
     )
 
-st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
+    st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
