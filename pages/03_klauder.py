@@ -32,7 +32,6 @@ def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
     return t, y
 
 st.title('Klauder wavelet') 
-st.text('A web app to display wavelets')
 
 #st.subheader("f(t) = ...")
 st.latex(r'''
@@ -47,6 +46,7 @@ with col1:
 with col2:
     f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    envelope = st.checkbox('Envelope')
     
 
 #st.write(f1, " - ", f2, "Hz, T =", T, " s")
