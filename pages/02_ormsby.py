@@ -36,14 +36,15 @@ with col1:
 with col2:
     f2 = st.slider('f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     #envelope = st.checkbox('Display wavelet envelope')
+    st.write("Phase rotation:")
 
 with col3:
     f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    phi = st.slider('Angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col4:
     f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
-    envelope = st.checkbox('Show envelope')
+    envelope = st.checkbox('Envelope')
 
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
