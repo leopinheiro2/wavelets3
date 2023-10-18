@@ -69,11 +69,11 @@ if envelope:
            "t": t,
            #"y": y
            "y": x_rotate,
-           "env2": inst_amplitude,
-           "env3": -1*inst_amplitude
+           "y_env2": inst_amplitude,
+           "y_env3": -1*inst_amplitude
        }
     )
-    st.line_chart(chart_data, x="t", y=["y", "env2", "env3"], color=["#d62728", "#D3D3D3", "#D3D3D3"], width=450, height=450)
+    st.line_chart(chart_data, x="t", y=["y", "y_env2", "y_env3"], color=["#d62728", "#D3D3D3", "#D3D3D3"], width=450, height=450)
 
 else:
     chart_data = pd.DataFrame(
