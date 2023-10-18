@@ -21,12 +21,14 @@ def ricker(f, length=0.512, dt=0.001):
     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
     return t, y
 
-#st.subheader("f(t) = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))")
-f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240.)
-#st.write("Frequency = ", f, "Hz")
+col1, col2 = st.columns(2)
+with col1:
+    f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240.)
+
 t, y = ricker (f)
 
-phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
+with col2:
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
 #st.write("Phi = ", phi)
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
