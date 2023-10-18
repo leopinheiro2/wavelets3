@@ -28,16 +28,23 @@ st.latex(r'''
     - \frac{\pi f_2^2 sinc^2 (\pi f_2 t) - \pi f_1^2 sinc^2 (\pi f_1 t)}{f_2 - f_1}
     ''') 
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
     f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
-    f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col2:
     f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+    envelope = st.checkbox('Display wavelet envelope')
+
+with col3:
+    f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+
+with col4:
     f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
     envelope = st.checkbox('Display wavelet envelope')
+
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
 #st.write("Phi = ", phi)
@@ -65,9 +72,7 @@ if envelope:
            "y3": -1*inst_amplitude
        }
     )
-
-    with col3:
-        st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
+    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
 
 else:
     chart_data = pd.DataFrame(
@@ -77,8 +82,7 @@ else:
        }
     )
 
-    with col3:
-        st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
+    st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
