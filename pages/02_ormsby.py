@@ -36,7 +36,7 @@ with col1:
 with col2:
     f2 = st.slider('f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     #envelope = st.checkbox('Display wavelet envelope')
-    st.write("Phase rotation:")
+    st.write("Rotate phase:")
 
 with col3:
     f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
