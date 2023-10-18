@@ -65,7 +65,7 @@ chart_data = pd.DataFrame(
    }
 )
 
-st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#FF0000", 'orange', 'orange'])
+st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#FF0000", "#FF0000", "#FF0000"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
