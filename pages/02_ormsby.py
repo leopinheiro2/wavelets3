@@ -32,13 +32,14 @@ col1, col2 = st.columns(2)
 with col1:
     f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
     f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col2:
     f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
+    envelope = st.checkbox('show envelope')
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
-phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 #st.write("Phi = ", phi)
 str1 = "ORMSBY " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
