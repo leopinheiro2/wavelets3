@@ -28,7 +28,7 @@ st.latex(r'''
     - \frac{\pi f_2^2 sinc^2 (\pi f_2 t) - \pi f_1^2 sinc^2 (\pi f_1 t)}{f_2 - f_1}
     ''') 
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
     f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
@@ -66,7 +66,8 @@ if envelope:
        }
     )
 
-    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
+    with col3:
+        st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
 
 else:
     chart_data = pd.DataFrame(
@@ -76,7 +77,8 @@ else:
        }
     )
 
-    st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
+    with col3:
+        st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
