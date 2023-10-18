@@ -34,16 +34,16 @@ with col1:
     #phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col2:
-    f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+    f2 = st.slider('f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     #envelope = st.checkbox('Display wavelet envelope')
 
 with col3:
-    f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
+    f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col4:
-    f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
-    envelope = st.checkbox('Display wavelet envelope')
+    f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
+    envelope = st.checkbox('Show envelope')
 
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
@@ -72,7 +72,7 @@ if envelope:
            "y3": -1*inst_amplitude
        }
     )
-    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"], width=500, height=500)
+    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"], width=400, height=400)
 
 else:
     chart_data = pd.DataFrame(
