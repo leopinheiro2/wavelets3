@@ -28,8 +28,9 @@ with col1:
 t, y = ricker (f)
 
 with col2:
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360.)
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 #st.write("Phi = ", phi)
+    envelope = st.checkbox('Envelope')
 
 #str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
 str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
