@@ -47,7 +47,7 @@ t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
 z= hilbert(y) #form the analytical signal
 #inst_amplitude = np.abs(z) #envelope extraction
-inst_amplitude = np.square(np.z.real) + np.square(np.z.imag) #envelope extraction
+inst_amplitude = np.square(z.real) + np.square(z.imag) #envelope extraction
 
 
 inst_phase = np.unwrap(np.angle(z))#inst phase
