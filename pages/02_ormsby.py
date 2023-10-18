@@ -31,11 +31,11 @@ st.latex(r'''
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    #phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col2:
     f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
-    envelope = st.checkbox('Display wavelet envelope')
+    #envelope = st.checkbox('Display wavelet envelope')
 
 with col3:
     f3 = st.slider('Select frequency f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
