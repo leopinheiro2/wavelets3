@@ -37,7 +37,7 @@ with col1:
 with col2:
     f2 = st.slider('Select frequency f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     f4 = st.slider('Select frequency f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
-    envelope = st.checkbox('show envelope')
+    envelope = st.checkbox('Display wavelet envelope')
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
 #st.write("Phi = ", phi)
@@ -55,18 +55,29 @@ inst_phase = np.unwrap(np.angle(z))#inst phase
 
 phase = phi * pi/180
 x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
-
-chart_data = pd.DataFrame(
-   {
-       "t": t,
-       #"y": y
-       "y": x_rotate,
-       "y2": inst_amplitude,
-       "y3": -1*inst_amplitude
-   }
-)
+if envelope:
+    chart_data = pd.DataFrame(
+       {
+           "t": t,
+           #"y": y
+           "y": x_rotate,
+           "y2": inst_amplitude,
+           "y3": -1*inst_amplitude
+       }
+    )
 
 st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
+
+else:
+    chart_data = pd.DataFrame(
+       {
+           "t": t,
+           #"y": y
+           "y": x_rotate
+       }
+    )
+
+st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
