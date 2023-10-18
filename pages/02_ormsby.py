@@ -72,7 +72,7 @@ if envelope:
            "y3": -1*inst_amplitude
        }
     )
-    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"])
+    st.line_chart(chart_data, x="t", y=["y", "y2", "y3"], color=["#d62728", "#1f77b4", "#1f77b4"], showlegend=False)
 
 else:
     chart_data = pd.DataFrame(
