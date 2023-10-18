@@ -23,7 +23,7 @@ def ricker(f, length=0.512, dt=0.001):
 
 col1, col2 = st.columns(2)
 with col1:
-    f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240.)
+    f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
 
 t, y = ricker (f)
 
