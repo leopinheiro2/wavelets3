@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html
 
-st.title('Seismic Wavelets v.2')
+st.title('Seismic Wavelets v.3')
 st.subheader('Alex Falkovskiy')
 url = "https://www.rmseismic.com"
 st.write("RM Seismic Software [rmseismic.com](%s)" % url)
