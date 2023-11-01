@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import hilbert
 import math
+
+st.set_page_config(layout="wide")
+
 pi = math.pi
 
 st.title('Ricker wavelet with synthetuic trace')
