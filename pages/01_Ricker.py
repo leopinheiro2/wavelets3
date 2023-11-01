@@ -27,42 +27,40 @@ with col1:
 
 t, y = ricker (f)
 
-with col2:
+with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
-#st.write("Phi = ", phi)
     envelope = st.checkbox('Envelope')
 
-#str1 = str(int(f)) + "Hz, Phase: " + str(int(phi))
-str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
-st.subheader(str1)
+    str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
+    st.subheader(str1)
+    
+    z= hilbert(y) #form the analytical signal
+    inst_amplitude = np.abs(z) #envelope extraction
+    inst_phase = np.unwrap(np.angle(z))#inst phase
+    
+    phase = phi * pi/180
+    x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
 
-z= hilbert(y) #form the analytical signal
-inst_amplitude = np.abs(z) #envelope extraction
-inst_phase = np.unwrap(np.angle(z))#inst phase
-
-phase = phi * pi/180
-x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
-
-with col2:
-if envelope:
-    chart_data = pd.DataFrame(
-       {
-           "t": t,
-           #"y": y
-           "y": x_rotate,
-           "y_env2": inst_amplitude,
-           "y_env3": -1*inst_amplitude
-       }
-    )
-    st.line_chart(chart_data, x="t", y=["y", "y_env2", "y_env3"], color=["#d62728", "#D3D3D3", "#D3D3D3"], width=450, height=450)
-
-else:
-    chart_data = pd.DataFrame(
-       {
-           "t": t,
-           "y": x_rotate
-       }
-    )
+with col1:
+    if envelope:
+        chart_data = pd.DataFrame(
+           {
+               "t": t,
+               #"y": y
+               "y": x_rotate,
+               "y_env2": inst_amplitude,
+               "y_env3": -1*inst_amplitude
+           }
+        )
+        st.line_chart(chart_data, x="t", y=["y", "y_env2", "y_env3"], color=["#d62728", "#D3D3D3", "#D3D3D3"], width=450, height=450)
+    
+    else:
+        chart_data = pd.DataFrame(
+           {
+               "t": t,
+               "y": x_rotate
+           }
+        )
 
     st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
