@@ -21,7 +21,7 @@ def ricker(f, length=0.512, dt=0.001):
     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
     return t, y
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 with col1:
     f = st.slider('Select frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
 
@@ -43,6 +43,7 @@ inst_phase = np.unwrap(np.angle(z))#inst phase
 phase = phi * pi/180
 x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
 
+with col2:
 if envelope:
     chart_data = pd.DataFrame(
        {
