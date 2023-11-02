@@ -67,12 +67,12 @@ with col1:
 
     st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 length1 = 1.0
-dt=0.001
-x1 = np.linspace(0, length1, int(length/dt))
+dt1=0.001
+x1 = np.linspace(0, length1, int(length1/dt1))
 
 # x1 = np.arange(0, 2000., 0.5)
-y1 = np.square(x1) -10 * x1
-y1 = np.linspace(0, length1, int(length/dt))
+# y1 = np.square(x1) -10 * x1
+y1 = np.linspace(0, length1, int(length1/dt1))
 y1[250] = -1.
 y1[500] = 1.
 y2 = np.cos(0.02*x1)
