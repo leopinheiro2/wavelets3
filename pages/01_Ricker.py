@@ -69,7 +69,7 @@ with col1:
 
 x1 = np.arange(0, 2000., 0.5)
 y1 = np.square(x1) -10 * x1
-y2 = np.cos(x1)
+y2 = np.cos(0.02*x1)
 
 fig1 = plt.figure(1)
 plt.subplot(111)
