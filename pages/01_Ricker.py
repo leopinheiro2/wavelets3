@@ -75,7 +75,9 @@ x1 = np.linspace(0, length1, int(length1/dt1))
 y1 = 0.* x1
 y1[250] = -1.
 y1[500] = 1.
-y2 = np.cos(0.02*x1)
+# y2 = np.cos(0.02*x1)
+
+y2 = numpy.convolve(y1, x_rotate, mode='same')
 
 fig1 = plt.figure(figsize=(4,12))
 fig1.suptitle('Reflectivity')
