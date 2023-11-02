@@ -67,5 +67,25 @@ with col1:
 
     st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
+x1 = np.arange(0, 2000., 0.5)
+y1 = np.square(x1) -10 * x
+y2 = np.cos(x)
+
+fig1 = plt.figure(1)
+plt.subplot(111)
+plt.plot(y1, x1)
+
+fig2 = plt.figure(2)
+plt.subplot(111)
+plt.plot(y2, x1)
+
+with col2:
+    st.pyplot(fig1) 
+
+with col3:
+    st.pyplot(fig2)
+
+
+
 url1 = "https://www.rmseismic.com/lasviewer.html"
 st.write("More geophysical web apps: [link](%s)" % url1)
