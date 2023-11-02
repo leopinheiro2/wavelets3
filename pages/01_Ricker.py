@@ -68,8 +68,8 @@ with col1:
     st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 
 x1 = np.arange(0, 2000., 0.5)
-y1 = np.square(x1) -10 * x
-y2 = np.cos(x)
+y1 = np.square(x1) -10 * x1
+y2 = np.cos(x1)
 
 fig1 = plt.figure(1)
 plt.subplot(111)
