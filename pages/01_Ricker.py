@@ -72,13 +72,13 @@ y1 = np.square(x1) -10 * x1
 y2 = np.cos(0.02*x1)
 
 fig1 = plt.figure(figsize=(4,8))
-fig1.title('Reflectivity')
+fig1.suptitle('Reflectivity')
 
 plt.subplot(111)
 plt.plot(y1, x1)
 
 fig2 = plt.figure(figsize=(4,8))
-fig1.title('Convolved')
+fig2.suptitle('Convolved')
 
 plt.subplot(111)
 plt.plot(y2, x1)
