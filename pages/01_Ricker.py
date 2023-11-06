@@ -13,9 +13,12 @@ pi = math.pi
 st.title('Ricker wavelet with synthetuic trace')
 st.text('This is a web app to display wavelets - select parameters.')
 
-d = st.slider('Space between reflectors', value=30., min_value=1., max_value=240., step=10., format="%.1f")
-number = st.number_input('Insert a number')
-st.write('The current number is ', number)
+col10, col20 = st.columns(2)
+with col10:
+    dr = st.slider('Reflector interval', value=30., min_value=0.01, max_value=1., step=10., format="%.2f")
+with col10:
+    nr = st.number_input('Number of reflectors')
+    st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
 
 
 
