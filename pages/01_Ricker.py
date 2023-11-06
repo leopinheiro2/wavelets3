@@ -90,7 +90,7 @@ ns = int(dr/dt1)
 st.write('dr =', dr, ' dt = ', dt1, ' ns = ', ns)
 y1[ns] = -1.
 for i in range(nr):
-    ni = ns*(i + 1)
+    ni = i
     if ni > len(y1):
         break
     rf = -1       
