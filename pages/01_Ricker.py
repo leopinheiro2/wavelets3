@@ -90,6 +90,10 @@ ns = int(dr/dt1)
 st.write('dr =', dr, ' dt = ', dt1, ' ns = ', ns)
 y1[ns] = -1.
 for i in range(nr):
+    ni = ns*(i + 1)
+    if ni > len(y1):
+        break
+    
     y1[ns*(i + 1)] = 1.
 
 y2 = np.convolve(y1, x_rotate, mode='same')
