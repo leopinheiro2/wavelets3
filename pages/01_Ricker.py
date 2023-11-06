@@ -16,7 +16,7 @@ st.text('This is a web app to display wavelets - select parameters.')
 col10, col20 = st.columns(2)
 with col10:
     dr = st.slider('Reflector interval', value=30., min_value=0.01, max_value=1., step=10., format="%.2f")
-with col10:
+with col20:
     nr = st.number_input('Number of reflectors')
     st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
 
