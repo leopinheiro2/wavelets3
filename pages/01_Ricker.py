@@ -12,6 +12,13 @@ pi = math.pi
 
 st.title('Ricker wavelet with synthetuic trace')
 st.text('This is a web app to display wavelets - select parameters.')
+
+d = st.slider('Space between reflectors', value=30., min_value=1., max_value=240., step=1, format="%.1f")
+number = st.number_input('Insert a number')
+st.write('The current number is ', number)
+
+
+
 #url = "https://rmseismic.com"
 #st.write("RM Seismic Software [rmseismic.com](%s)" % url)
 
