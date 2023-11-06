@@ -93,8 +93,18 @@ for i in range(nr):
     ni = ns*(i + 1)
     if ni > len(y1):
         break
+    rf = -1       
+    if ni%4 == 0:
+        rf = -1
+    if ni%4 == 1:
+        rf = 1
+    if ni%4 == 2:
+        rf = 1
+    if ni%4 == 3:
+        rf = -0.5
+
     
-    y1[ns*(i + 1)] = 1.
+    y1[ns*(i + 1)] = rf
 
 y2 = np.convolve(y1, x_rotate, mode='same')
 
