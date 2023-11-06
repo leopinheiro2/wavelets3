@@ -87,6 +87,7 @@ y1[400] = -1.
 y1[500] = 1.
 # y2 = np.cos(0.02*x1)
 ns = dr/dt1
+print(dr, dt1, ns)
 y1[ns] = -1.
 for i in range(nr):
     y1[ns*(i + 1.)] = 1.
