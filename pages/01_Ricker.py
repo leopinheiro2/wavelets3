@@ -106,13 +106,13 @@ for i in range(nr):
 
 y2 = np.convolve(y1, x_rotate, mode='same')
 
-fig1 = plt.figure(figsize=(4,8))
+fig1 = plt.figure(figsize=(4,10))
 fig1.suptitle('Reflectivity')
 
 plt.subplot(111)
 plt.plot(y1, x1)
 
-fig2 = plt.figure(figsize=(4,12))
+fig2 = plt.figure(figsize=(4,10))
 fig2.suptitle('Convolved')
 
 plt.subplot(111)
