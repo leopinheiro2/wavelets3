@@ -117,7 +117,7 @@ fig2.suptitle('Convolved')
 
 plt.subplot(111)
 # plt.plot(y2, x1)
-plt.plot(y2, np.maximum(0,x1))
+plt.plot(y2, np.maximum(0.,x1))
 # plt.plot(y2, np.minimum(0*x1,x1))
 # plt.fill_between(y2, np.maximum(0,x1), x1,  color='blue', alpha=.2)
 # plt.fill_between(y2, 0*x1, x1,  color='blue', alpha=.2)
