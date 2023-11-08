@@ -101,10 +101,8 @@ for i in range(nr):
     if i%4 == 2:
         rf = 1
     if i%4 == 3:
-        rf = -0.5
-
-    
-    y1[ns*(i + 1)] = rf
+        rf = -0.5    
+    y1[ni] = rf
 
 y2 = np.convolve(y1, x_rotate, mode='same')
 
