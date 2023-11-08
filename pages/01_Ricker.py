@@ -123,7 +123,9 @@ plt.plot(x1, y2)
 # plt.fill_between(y2, 0*x1, x1,  color='blue', alpha=.2)
 
 # plt.fill_between(x1, np.maximum(0*x1,y2), y2, y2,  color='red', alpha=.4)
-plt.fill_between(x1, np.maximum(0*x1,y2), y2,  color='orange', alpha=.4)
+# plt.fill_between(x1, np.maximum(0*x1,y2), y2,  color='orange', alpha=.4)
+plt.fill_between(y2, np.maximum(0*x1,y2), 0*x1,  color='blue', alpha=.4)
+
 
 with col2:
     st.pyplot(fig1) 
