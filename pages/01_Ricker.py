@@ -105,6 +105,7 @@ for i in range(nr):
     y1[ni] = rf
 
 y2 = np.convolve(y1, x_rotate, mode='same')
+y2[0] = 0.
 
 fig1 = plt.figure(figsize=(4,10))
 fig1.suptitle('Reflectivity')
