@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 pi = math.pi
 
-st.title('Ricker wavelet with synthetuic trace')
+st.title('Ricker wavelet with synthetuic trace Nov 7, 2023')
 st.text('This is a web app to display wavelets - select parameters.')
 
 col10, col20 = st.columns(2)
@@ -83,15 +83,15 @@ x1 = np.linspace(0, length1, int(length1/dt1))
 # x1 = np.arange(0, 2000., 0.5)
 # y1 = np.square(x1) -10 * x1
 y1 = 0.* x1
-y1[400] = -1.
-y1[500] = 1.
+# y1[400] = -1.
+# y1[500] = 1.
 # y2 = np.cos(0.02*x1)
 ns = int(dr/dt1)
 st.write('dr =', dr, ' dt = ', dt1, ' ns = ', ns)
 y1[ns] = -1.
 for i in range(nr):
     ni = ns*(i + 1)
-    if ni > len(y1):
+    if ni > len(y1) - 1:
         break
     rf = -1       
     if i%4 == 0:
