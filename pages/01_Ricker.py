@@ -131,7 +131,7 @@ y2pos = np.maximum(0,y2)
 y2pos[10] = 0.
 x1[10] = .25
 
-plt.fill_between(y2pos, x1, 0,  color='red', alpha=.4)
+plt.fill_between(y2pos, x1, 0,  color='green', alpha=.4)
 
 
 with col2:
