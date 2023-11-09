@@ -15,7 +15,7 @@ st.text('Select model and wavelet parameters')
 
 col10, col20 = st.columns(2)
 with col10:
-    dr = st.slider('Reflector interval', value=0.1, min_value=0.01, max_value=1., step=0.01, format="%.2f")
+    dr = st.slider('Reflector interval (sec)', value=0.1, min_value=0.01, max_value=0.5, step=0.01, format="%.2f")
 with col20:
     nr = st.number_input('Number of reflectors', min_value=1, max_value=20, value=5, step=1)
 
