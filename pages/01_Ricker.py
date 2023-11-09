@@ -132,7 +132,7 @@ y2pos[10] = 0.
 x1[10] = .25
 
 # plt.fill_between(y2pos, x1, 0,  color='green', alpha=.4)
-plt.fill_betweenx(y2pos, x1, 0,  color='green', alpha=.4)
+plt.fill_betweenx(x1, y2pos, 0,  color='green', alpha=.4)
 
 
 with col2:
