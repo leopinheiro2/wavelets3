@@ -10,8 +10,8 @@ st.set_page_config(layout="wide")
 
 pi = math.pi
 
-st.title('Ricker wavelet with synthetuic trace Nov 7, 2023')
-st.text('This is a web app to display wavelets - select parameters.')
+st.title('Ricker wavelet with synthetic trace Nov 7, 2023')
+st.text('Select model and wavelet parameters')
 
 col10, col20 = st.columns(2)
 with col10:
@@ -44,7 +44,7 @@ with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
 
-    str1 = "Peak frequency = " + str(int(f + 0.5)) + " Hz, Phase rotation = " + str(int(phi+0.5)) + "°"
+    str1 = "Frequency = " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
@@ -94,14 +94,20 @@ for i in range(nr):
     if ni > len(y1) - 1:
         break
     rf = -1       
-    if i%4 == 0:
+    if i%6 == 0:
         rf = -1
-    if i%4 == 1:
+    if i%6 == 1:
         rf = 1
-    if i%4 == 2:
+    if i%6 == 2:
         rf = 1
-    if i%4 == 3:
-        rf = -0.5    
+    if i%6 == 3:
+        rf = -0.5  
+
+    if i%6 == 3:
+        rf = 0.5  
+    if i%6 == 3:
+        rf = 1.  
+        
     y1[ni] = rf
 
 y2 = np.convolve(y1, x_rotate, mode='same')
@@ -133,7 +139,7 @@ y2pos[10] = 0.
 x1[10] = .25
 
 # plt.fill_between(y2pos, x1, 0,  color='green', alpha=.4)
-plt.fill_betweenx(x1, y2pos, 0,  color='red', alpha=.6)
+plt.fill_betweenx(x1, y2pos, 0,  color='navy', alpha=.6)
 plt.gca().invert_yaxis()
 
 with col2:
