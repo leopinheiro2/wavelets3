@@ -19,8 +19,8 @@ with col10:
 with col20:
     nr = st.number_input('Number of reflectors', min_value=1, max_value=20, value=5, step=1)
 
-st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
-str0 = str(int(nr)) + " reflectors, spacing: " + str(dr) + " sec"
+# st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
+str0 = "Model: " + str(int(nr)) + " reflectors, distence between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
 
 
@@ -47,7 +47,7 @@ with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
 
-    str1 = str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
+    str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
