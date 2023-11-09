@@ -103,9 +103,9 @@ for i in range(nr):
     if i%6 == 3:
         rf = -0.5  
 
-    if i%6 == 3:
+    if i%6 == 4:
         rf = 0.5  
-    if i%6 == 3:
+    if i%6 == 5:
         rf = 1.  
         
     y1[ni] = rf
