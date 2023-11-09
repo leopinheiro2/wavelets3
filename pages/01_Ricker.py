@@ -129,6 +129,7 @@ plt.plot(y2, x1)
 
 y2pos = np.maximum(0,y2)
 y2pos[0] = 0.
+x1pos[0] = 0.
 
 plt.fill_between(y2pos, x1, 0,  color='red', alpha=.4)
 
