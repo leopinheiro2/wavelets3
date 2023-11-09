@@ -40,6 +40,18 @@ st.subheader(str0)
 
 
 
+def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
+    k = (f2 - f1)/T
+    f0 = (f2 + f1)/2
+    i = complex(0, 1)
+    p = np.pi
+    t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
+    #y = t**2
+
+    a = np.exp(2*pi*i*f0*t)
+    y = (a * np.sin(pi*k*t*(T - t)) / (pi*k*t)).real
+
+    return t, y
 
 st.latex(r'''
     Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
