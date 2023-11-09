@@ -23,29 +23,53 @@ with col20:
 str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
 
+# def ricker(f, length=0.512, dt=0.001):
+#     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
+#     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
+#     return t, y
 
-
-#url = "https://rmseismic.com"
-#st.write("RM Seismic Software [rmseismic.com](%s)" % url)
-
-def ricker(f, length=0.512, dt=0.001):
-    t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
-    y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
-    return t, y
-
-col1, col2, col3 = st.columns(3)
-with col1:
+# col1, col2, col3 = st.columns(3)
+# with col1:
     
-    st.latex(r'''
-    Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-    ''') 
-    f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
+#     st.latex(r'''
+#     Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
+#     ''') 
+#     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
 
-t, y = ricker (f)
+# t, y = ricker (f)
 
+
+
+
+st.latex(r'''
+    Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
+    where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
+    ''')
+col1, col2 = st.columns(2)
 with col1:
+    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+    T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
+
+with col2:
+    f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
+    
+
+#st.write(f1, " - ", f2, "Hz, T =", T, " s")
+
+#f1 = 5
+#f2 = 10
+
+t, y = Klauder(T, f1, f2, 0.512, 0.001)
+
+
+
+
+
+with col1:
+    # phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    # envelope = st.checkbox('Envelope')
 
     str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
