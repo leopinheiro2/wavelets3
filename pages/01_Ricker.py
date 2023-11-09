@@ -17,8 +17,11 @@ col10, col20 = st.columns(2)
 with col10:
     dr = st.slider('Reflector interval', value=0.1, min_value=0.01, max_value=1., step=0.01, format="%.2f")
 with col20:
-    nr = st.number_input('Number of reflectors', min_value=1, max_value=10, value=5, step=1)
-    st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
+    nr = st.number_input('Number of reflectors', min_value=1, max_value=20, value=5, step=1)
+
+st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
+str0 = str(int(nr)) + " reflectors, spacing: " + str(dr) + " sec"
+st.subheader(str0)
 
 
 
