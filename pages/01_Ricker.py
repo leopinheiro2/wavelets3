@@ -128,8 +128,8 @@ plt.plot(y2, x1)
 # plt.fill_betweenx(y2, np.maximum(0*y2,y2), 0*x1,  color='blue', alpha=.4)
 
 y2pos = np.maximum(0,y2)
-y2pos[0] = 0.
-x1[0] = 0.
+y2pos[1] = 0.
+x1[1] = 0.
 
 plt.fill_between(y2pos, x1, 0,  color='red', alpha=.4)
 
