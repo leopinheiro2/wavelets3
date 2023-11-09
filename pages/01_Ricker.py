@@ -11,16 +11,16 @@ st.set_page_config(layout="wide")
 pi = math.pi
 
 st.title('Ricker wavelet with synthetic trace Nov 7, 2023')
-st.text('Select model and wavelet parameters')
+st.text('Select model parameters')
 
 col10, col20 = st.columns(2)
 with col10:
     dr = st.slider('Reflector interval (sec)', value=0.1, min_value=0.01, max_value=0.5, step=0.01, format="%.2f")
 with col20:
-    nr = st.number_input('Number of reflectors', min_value=1, max_value=20, value=5, step=1)
+    nr = st.number_input('Number of reflectors', min_value=1, max_value=20, value=8, step=1)
 
 # st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
-str0 = "Model: " + str(int(nr)) + " reflectors, distence between reflectors: " + str(dr) + " sec"
+str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
 
 
