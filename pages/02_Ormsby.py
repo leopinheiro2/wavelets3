@@ -80,7 +80,7 @@ with col3:
 
 with col4:
     f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
-    # envelope = st.checkbox('Envelope')
+    envelope = st.checkbox('Envelope')
 
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
@@ -94,11 +94,11 @@ t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
 
 with col1:
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
-    envelope = st.checkbox('Envelope')
+    # phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    # envelope = st.checkbox('Envelope')
 
-    str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
-    st.subheader(str1)
+    # str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
+    # st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
     inst_amplitude = np.abs(z) #envelope extraction
