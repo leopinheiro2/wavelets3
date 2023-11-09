@@ -25,23 +25,73 @@ st.subheader(str0)
 
 
 
-#url = "https://rmseismic.com"
-#st.write("RM Seismic Software [rmseismic.com](%s)" % url)
 
-def ricker(f, length=0.512, dt=0.001):
+# #url = "https://rmseismic.com"
+# #st.write("RM Seismic Software [rmseismic.com](%s)" % url)
+
+# def ricker(f, length=0.512, dt=0.001):
+#     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
+#     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
+#     return t, y
+
+# col1, col2, col3 = st.columns(3)
+# with col1:
+    
+#     st.latex(r'''
+#     Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
+#     ''') 
+#     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
+
+# t, y = ricker (f)
+
+def ORMSBY(f1=5., f2=10., f3=40., f4=45., length=0.512, dt=0.001):
+    p = np.pi
     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
-    y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
+
+    # y = p*p*f4**2 * (np.sinc(f4*t))**2/(p*f4-p*f3) - p*p*f3**2 * (np.sinc(f3*t))**2/(p*f4-p*f3) - \
+    #     p*p*f2**2 * (np.sinc(f2*t))**2/(p*f2-p*f1) - p*p*f1**2 * (np.sinc(f1*t))**2/(p*f2-p*f1)
+    y = p*f4**2 * (np.sinc(f4*t))**2/(f4-f3) - p*f3**2 * (np.sinc(f3*t))**2/(f4-f3) - \
+        p*f2**2 * (np.sinc(f2*t))**2/(f2-f1) - p*f1**2 * (np.sinc(f1*t))**2/(f2-f1)
+
+    y = y / np.amax(abs(y))
+
     return t, y
 
-col1, col2, col3 = st.columns(3)
-with col1:
-    
-    st.latex(r'''
-    Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-    ''') 
-    f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
+st.title('ORMSBY wavelet')
 
-t, y = ricker (f)
+st.latex(r'''
+    Ormsby(t) = \frac{\pi f_4^2 sinc^2 (\pi f_4 t) - \pi f_3^2 sinc^2 (\pi f_3 t)}{f_4 - f_3}  
+    - \frac{\pi f_2^2 sinc^2 (\pi f_2 t) - \pi f_1^2 sinc^2 (\pi f_1 t)}{f_2 - f_1}
+    ''') 
+
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
+    #phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+
+with col2:
+    f2 = st.slider('f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+    #envelope = st.checkbox('Display wavelet envelope')
+    st.write("Rotate phase:")
+
+with col3:
+    f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
+    phi = st.slider('Angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+
+with col4:
+    f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
+    envelope = st.checkbox('Envelope')
+
+#st.write(f1, " - ", f2, " - ", f3, " - ", f4)
+
+#st.write("Phi = ", phi)
+str1 = "ORMSBY " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
+st.subheader(str1)
+
+t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
+
+
+
 
 with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
