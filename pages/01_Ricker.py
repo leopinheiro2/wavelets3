@@ -44,7 +44,7 @@ with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
 
-    str1 = "Frequency = " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
+    str1 = "str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
@@ -113,8 +113,8 @@ for i in range(nr):
 y2 = np.convolve(y1, x_rotate, mode='same')
 y2[0] = 0.
 
-fig1 = plt.figure(figsize=(4,11))
-fig1.suptitle('Reflectivity')
+fig1 = plt.figure(figsize=(4,12))
+# fig1.suptitle('Reflectivity')
 
 plt.subplot(111)
 plt.plot(y1, x1)
@@ -123,7 +123,7 @@ plt.gca().invert_yaxis()
 plt.xlabel("Reflectivity")
 plt.ylabel("Two-way time (sec)")
 
-fig2 = plt.figure(figsize=(4,11))
+fig2 = plt.figure(figsize=(4,12))
 # fig2.suptitle('Convolved')
 plt.xlabel("Synthetic trace")
 plt.ylabel("Two-way time (sec)")
