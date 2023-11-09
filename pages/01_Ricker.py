@@ -112,6 +112,7 @@ fig1.suptitle('Reflectivity')
 
 plt.subplot(111)
 plt.plot(y1, x1)
+plt.invert_yaxis()
 
 fig2 = plt.figure(figsize=(4,10))
 fig2.suptitle('Convolved')
@@ -133,7 +134,7 @@ x1[10] = .25
 
 # plt.fill_between(y2pos, x1, 0,  color='green', alpha=.4)
 plt.fill_betweenx(x1, y2pos, 0,  color='red', alpha=.6)
-
+plt.invert_yaxis()
 
 with col2:
     st.pyplot(fig1) 
