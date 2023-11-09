@@ -44,7 +44,7 @@ with col1:
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
 
-    str1 = "str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
+    str1 = str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
