@@ -113,18 +113,20 @@ for i in range(nr):
 y2 = np.convolve(y1, x_rotate, mode='same')
 y2[0] = 0.
 
-fig1 = plt.figure(figsize=(4,10))
+fig1 = plt.figure(figsize=(4,11))
 fig1.suptitle('Reflectivity')
 
 plt.subplot(111)
 plt.plot(y1, x1)
 plt.gca().invert_yaxis()
-plt.title("Reflectivity")
+# plt.title("Reflectivity")
 plt.xlabel("Reflectivity")
 plt.ylabel("Two-way time (sec)")
 
-fig2 = plt.figure(figsize=(4,10))
-fig2.suptitle('Convolved')
+fig2 = plt.figure(figsize=(4,11))
+# fig2.suptitle('Convolved')
+plt.xlabel("Synthetic trace")
+plt.ylabel("Two-way time (sec)")
 
 plt.subplot(111)
 plt.plot(y2, x1)
