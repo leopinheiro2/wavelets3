@@ -76,7 +76,7 @@ with col2:
 
 with col3:
     f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
-    # phi = st.slider('Angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    phi = st.slider('Angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
 with col4:
     f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
