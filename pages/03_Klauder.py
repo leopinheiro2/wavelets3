@@ -58,7 +58,6 @@ st.latex(r'''
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
 
-col1, col2 = st.columns(2)
 
 col100, col200, col300, col400, col500 = st.columns(5)
 with col100:
@@ -85,7 +84,7 @@ t, y = Klauder(T, f1, f2, 0.512, 0.001)
 
 
 
-
+col1, col2, col3 = st.columns(3)
 
 # with col1:
     # phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
