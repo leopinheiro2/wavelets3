@@ -37,14 +37,13 @@ def ORMSBY(f1=5., f2=10., f3=40., f4=45., length=0.512, dt=0.001):
 
     return t, y
 
-st.title('ORMSBY wavelet')
-
+# st.title('ORMSBY wavelet')
+st.text('Select wavelet parameters')
 st.latex(r'''
     Ormsby(t) = \frac{\pi f_4^2 sinc^2 (\pi f_4 t) - \pi f_3^2 sinc^2 (\pi f_3 t)}{f_4 - f_3}  
     - \frac{\pi f_2^2 sinc^2 (\pi f_2 t) - \pi f_1^2 sinc^2 (\pi f_1 t)}{f_2 - f_1}
     ''') 
 
-st.text('Select wavelet parameters')
 col100, col200, col300, col400, col500, col600 = st.columns(6)
 with col100:
     f1 = st.slider('f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
