@@ -87,19 +87,19 @@ t, y = Klauder(T, f1, f2, 0.512, 0.001)
 
 
 
-with col1:
+# with col1:
     # phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     # envelope = st.checkbox('Envelope')
 
     # str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     # st.subheader(str1)
     
-    z= hilbert(y) #form the analytical signal
-    inst_amplitude = np.abs(z) #envelope extraction
-    inst_phase = np.unwrap(np.angle(z))#inst phase
+z= hilbert(y) #form the analytical signal
+inst_amplitude = np.abs(z) #envelope extraction
+inst_phase = np.unwrap(np.angle(z))#inst phase
     
-    phase = phi * pi/180
-    x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
+phase = phi * pi/180
+x_rotate = math.cos(phase)*z.real - math.sin(phase)*z.imag
 
 with col1:
     if envelope:
