@@ -11,9 +11,11 @@ st.set_page_config(layout="wide")
 pi = math.pi
 
 st.title('Ricker wavelet with synthetic trace')
-st.text('Select model parameters')
+# st.text('Select model parameters')
 
-col10, col20 = st.columns(2)
+col00, col10, col20 = st.columns(3)
+with col00:
+    st.text('Select model parameters')
 with col10:
     dr = st.slider('Reflector interval (sec)', value=0.1, min_value=0.01, max_value=0.5, step=0.01, format="%.2f")
 with col20:
@@ -40,7 +42,7 @@ Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
 
 col100, col200, col300 = st.columns(3)
 with col100:
-         f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")   
+         f = st.slider('Frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")   
 with col200:
         phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 with col300:
