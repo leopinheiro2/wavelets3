@@ -24,26 +24,6 @@ str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " +
 st.subheader(str0)
 
 
-
-
-# #url = "https://rmseismic.com"
-# #st.write("RM Seismic Software [rmseismic.com](%s)" % url)
-
-# def ricker(f, length=0.512, dt=0.001):
-#     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
-#     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
-#     return t, y
-
-# col1, col2, col3 = st.columns(3)
-# with col1:
-    
-#     st.latex(r'''
-#     Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-#     ''') 
-#     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
-
-# t, y = ricker (f)
-
 def ORMSBY(f1=5., f2=10., f3=40., f4=45., length=0.512, dt=0.001):
     p = np.pi
     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
