@@ -23,21 +23,6 @@ with col20:
 str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
 
-# def ricker(f, length=0.512, dt=0.001):
-#     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
-#     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
-#     return t, y
-
-# col1, col2, col3 = st.columns(3)
-# with col1:
-    
-#     st.latex(r'''
-#     Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-#     ''') 
-#     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
-
-# t, y = ricker (f)
-
 
 
 def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
@@ -53,12 +38,13 @@ def Klauder(T=6., f1=10., f2=40., length=0.512, dt=0.001):
 
     return t, y
 
+
+st.text('Select wavelet parameters')
 st.latex(r'''
     Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
 
-st.text('Select wavelet parameters')
 col100, col200, col300, col400, col500 = st.columns(5)
 with col100:
     f1 = st.slider('Terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
@@ -81,7 +67,8 @@ with col500:
 #f2 = 10
 
 t, y = Klauder(T, f1, f2, 0.512, 0.001)
-
+str1 = "Klauder " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " Hz, " + str(int(T + 0.5))   + " sec, Phase " + str(int(phi+0.5)) + "°"
+st.subheader(str1)
 
 
 col1, col2, col3 = st.columns(3)
