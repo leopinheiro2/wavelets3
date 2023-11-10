@@ -46,7 +46,8 @@ with col200:
 with col300:
     envelope = st.checkbox('Envelope')    
 
-
+str1 = "Ricker " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
+st.subheader(str1)
 
 col1, col2, col3 = st.columns(3)
 # with col1:
@@ -57,8 +58,7 @@ t, y = ricker (f)
 with col1:
     # envelope = st.checkbox('Envelope')
 
-    str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
-    st.subheader(str1)
+
     
     z= hilbert(y) #form the analytical signal
     inst_amplitude = np.abs(z) #envelope extraction
