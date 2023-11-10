@@ -51,6 +51,8 @@ with col300:
 str1 = "Ricker " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
 # st.subheader(str1)
 
+st.divider()
+
 col1, col2, col3 = st.columns(3)
 # with col1:
 #     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
