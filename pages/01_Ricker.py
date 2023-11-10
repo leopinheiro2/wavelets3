@@ -8,9 +8,6 @@ import math
 
 st.set_page_config(layout="wide")
 
-style = "<style>h2 {text-align: center;}</style>"
-st.markdown(style, unsafe_allow_html=True)
-
 pi = math.pi
 
 st.title('Ricker wavelet with synthetic trace')
@@ -166,12 +163,11 @@ plt.fill_betweenx(x1, y2pos, 0,  color='navy', alpha=.6)
 plt.gca().invert_yaxis()
 
 with col2:
-    st.subheader('#     Reflectivity')
+    st.subheader('Reflectivity')
     st.pyplot(fig1) 
 
 with col3:
-    st.markdown('##') 
-    st.subheader('#     Synthetic trace')
+    st.subheader('Synthetic trace')
     st.pyplot(fig2)
 
 
