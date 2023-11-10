@@ -167,6 +167,7 @@ with col2:
     st.pyplot(fig1) 
 
 with col3:
+    st.markdown('##') 
     st.subheader('#     Synthetic trace')
     st.pyplot(fig2)
 
