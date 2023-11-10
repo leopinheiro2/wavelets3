@@ -57,15 +57,25 @@ st.latex(r'''
     Klauder(t) = Re (\frac{sin(\pi kt(T-t))}{\pi kt} e^ {2 \pi if_0 t}),
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
-col1, col2, col3 = st.columns(3)
-with col1:
+
+col, col20 = st.columns(2)
+
+col100, col200, col300, col400, col500 = st.columns(3)
+with col100:
     f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+
+with col200:    
     f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
+    
+ with col300:   
     T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
+
+ with col400:      
     phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+
+ with col500:    
     envelope = st.checkbox('Envelope')
     
-
 #st.write(f1, " - ", f2, "Hz, T =", T, " s")
 
 #f1 = 5
