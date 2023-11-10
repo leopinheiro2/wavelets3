@@ -24,7 +24,7 @@ with col20:
 # st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
 str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
-
+st.divider()
 
 
 #url = "https://rmseismic.com"
