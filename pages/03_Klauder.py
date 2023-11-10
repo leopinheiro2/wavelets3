@@ -58,7 +58,7 @@ st.latex(r'''
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
 
-col, col20 = st.columns(2)
+col1, col2 = st.columns(2)
 
 col100, col200, col300, col400, col500 = st.columns(5)
 with col100:
