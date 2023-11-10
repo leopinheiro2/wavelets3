@@ -11,9 +11,9 @@ st.set_page_config(layout="wide")
 pi = math.pi
 
 st.title('Klauder wavelet with synthetic trace')
-st.text('Select model parameters')
-
-col10, col20 = st.columns(2)
+col00, col10, col20 = st.columns(3)
+with col00:
+    st.text('Select model parameters')
 with col10:
     dr = st.slider('Reflector interval (sec)', value=0.1, min_value=0.01, max_value=0.5, step=0.01, format="%.2f")
 with col20:
