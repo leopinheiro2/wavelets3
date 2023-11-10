@@ -44,22 +44,27 @@ st.latex(r'''
     - \frac{\pi f_2^2 sinc^2 (\pi f_2 t) - \pi f_1^2 sinc^2 (\pi f_1 t)}{f_2 - f_1}
     ''') 
 
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    f1 = st.slider('Select frequency f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
+st.text('Select wavelet parameters')
+col100, col200, col300, col400, col500, col600 = st.columns(6)
+with col100:
+    f1 = st.slider('f1 (Hz)', value=5., min_value=1., max_value=240., step=1., format="%.1f")
     #phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
-with col2:
+with col200:
     f2 = st.slider('f2 (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     #envelope = st.checkbox('Display wavelet envelope')
-    st.write("Rotate phase:")
+    # st.write("Rotate phase:")
 
-with col3:
+with col300:
     f3 = st.slider('f3 (Hz)', value=60., min_value=1., max_value=240., step=1., format="%.1f")
-    phi = st.slider('Angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
 
-with col4:
+with col400:
     f4 = st.slider('f4 (Hz)', value=70., min_value=1., max_value=240., step=1., format="%.1f")
+
+with col500:
+    phi = st.slider('Phase (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+
+with col600:
     envelope = st.checkbox('Envelope')
 
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
@@ -73,6 +78,7 @@ t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
 
 
+col1, col2, col3 = st.columns(3)
 with col1:
     # phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     # envelope = st.checkbox('Envelope')
