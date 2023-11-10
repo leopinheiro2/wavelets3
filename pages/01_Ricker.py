@@ -49,7 +49,7 @@ with col300:
     envelope = st.checkbox('Envelope')    
 
 str1 = "Ricker " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
-st.subheader(str1)
+# st.subheader(str1)
 
 col1, col2, col3 = st.columns(3)
 # with col1:
@@ -59,7 +59,7 @@ t, y = ricker (f)
 
 with col1:
     # envelope = st.checkbox('Envelope')
-
+    st.subheader(str1)
 
     
     z= hilbert(y) #form the analytical signal
@@ -163,9 +163,11 @@ plt.fill_betweenx(x1, y2pos, 0,  color='navy', alpha=.6)
 plt.gca().invert_yaxis()
 
 with col2:
+    st.subheader('Reflectivity')
     st.pyplot(fig1) 
 
 with col3:
+    st.subheader('Synthetic trace')
     st.pyplot(fig2)
 
 
