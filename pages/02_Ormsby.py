@@ -70,7 +70,7 @@ with col600:
 
 #st.write("Phi = ", phi)
 str1 = "Ormsby " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
-st.subheader(str1)
+# st.subheader(str1)
 
 t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
 
@@ -83,7 +83,7 @@ with col1:
     # envelope = st.checkbox('Envelope')
 
     # str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
-    # st.subheader(str1)
+    st.subheader(str1)
     
     z= hilbert(y) #form the analytical signal
     inst_amplitude = np.abs(z) #envelope extraction
@@ -186,9 +186,11 @@ plt.fill_betweenx(x1, y2pos, 0,  color='navy', alpha=.6)
 plt.gca().invert_yaxis()
 
 with col2:
+    st.subheader('Reflectivity')
     st.pyplot(fig1) 
 
 with col3:
+    st.subheader('Synthetic trace')
     st.pyplot(fig2)
 
 
