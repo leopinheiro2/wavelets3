@@ -60,7 +60,7 @@ st.latex(r'''
 
 col, col20 = st.columns(2)
 
-col100, col200, col300, col400, col500 = st.columns(3)
+col100, col200, col300, col400, col500 = st.columns(5)
 with col100:
     f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
 
