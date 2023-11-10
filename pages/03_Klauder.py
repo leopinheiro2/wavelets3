@@ -62,7 +62,7 @@ with col1:
     f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
     f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
     T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
-        phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
     envelope = st.checkbox('Envelope')
     
 
