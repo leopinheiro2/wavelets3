@@ -121,7 +121,7 @@ with col1:
            }
         )
 
-    st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
+        st.line_chart(chart_data, x="t", y=["y"], color=["#d62728"])
 length1 = 1.0
 dt1=0.001
 x1 = np.linspace(0, length1, int(length1/dt1))
