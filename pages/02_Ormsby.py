@@ -69,7 +69,7 @@ with col600:
 #st.write(f1, " - ", f2, " - ", f3, " - ", f4)
 
 #st.write("Phi = ", phi)
-str1 = "ORMSBY " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
+str1 = "Ormsby " + str(int(f1 + 0.5)) + " - " + str(int(f2 + 0.5))  + " - " + str(int(f3 + 0.5)) + " - " + str(int(f4 + 0.5)) + " Hz, Phase " + str(int(phi+0.5)) + "°"
 st.subheader(str1)
 
 t, y = ORMSBY(f1, f2, f3, f4, 0.512, 0.001)
