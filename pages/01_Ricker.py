@@ -10,7 +10,8 @@ st.set_page_config(layout="wide")
 
 pi = math.pi
 
-st.title('Ricker wavelet with synthetic trace')
+#st.title('Ricker wavelet with synthetic trace')
+st.subheader('Ricker wavelet with synthetic trace')
 # st.text('Select model parameters')
 
 col00, col10, col20 = st.columns(3)
@@ -24,11 +25,6 @@ with col20:
 # st.write('The number of reflectors is ', nr,'Reflector interval: ', dr)
 str0 = "Model: " + str(int(nr)) + " reflectors, distance between reflectors: " + str(dr) + " sec"
 st.subheader(str0)
-st.divider()
-
-
-#url = "https://rmseismic.com"
-#st.write("RM Seismic Software [rmseismic.com](%s)" % url)
 
 def ricker(f, length=0.512, dt=0.001):
     t = np.linspace(-length/2, (length-dt)/2, int(length/dt))
@@ -50,8 +46,6 @@ with col300:
 
 str1 = "Ricker " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
 # st.subheader(str1)
-
-st.divider()
 
 col1, col2, col3 = st.columns(3)
 # with col1:
