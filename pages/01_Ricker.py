@@ -10,9 +10,7 @@ st.set_page_config(layout="wide")
 
 pi = math.pi
 
-#st.title('Ricker wavelet with synthetic trace')
-st.subheader('Ricker wavelet with synthetic trace')
-# st.text('Select model parameters')
+st.title('Ricker wavelet with synthetic trace')
 
 col00, col10, col20 = st.columns(3)
 with col00:
