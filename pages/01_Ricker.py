@@ -36,15 +36,11 @@ def ricker(f, length=0.512, dt=0.001):
     return t, y
 
 st.text('Select wavelet parameters')
-# st.latex(r'''
-# Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-# ''') 
+st.latex(r'''
+Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
+''') 
 
-col000, col100, col200, col300 = st.columns(4)
-with col000:
-    st.latex(r'''
-    Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-    ''') 
+col100, col200, col300 = st.columns(3)
 with col100:
          f = st.slider('Frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")   
 with col200:
