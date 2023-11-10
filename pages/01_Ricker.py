@@ -37,15 +37,25 @@ st.text('Select wavelet parameters')
 st.latex(r'''
 Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
 ''') 
+
+col100, col200, col300 = st.columns(3)
+with col100:
+         f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")   
+with col200:
+        phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
+with col1300:
+    envelope = st.checkbox('Envelope')    
+
+
+
 col1, col2, col3 = st.columns(3)
-with col1:
-    f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
+# with col1:
+#     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
 
 t, y = ricker (f)
 
 with col1:
-    phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
-    envelope = st.checkbox('Envelope')
+    # envelope = st.checkbox('Envelope')
 
     str1 = "Wavelet: " + str(int(f + 0.5)) + " Hz, Phase = " + str(int(phi+0.5)) + "°"
     st.subheader(str1)
