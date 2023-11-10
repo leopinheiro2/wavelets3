@@ -58,13 +58,13 @@ st.latex(r'''
     where \; k = \frac{f_2 - f_l}{T}, fo = \frac{f_2 + f_l}{2}, i = \sqrt{-1}
     ''')
 
-
+st.text('Select wavelet parameters')
 col100, col200, col300, col400, col500 = st.columns(5)
 with col100:
-    f1 = st.slider('Select terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
+    f1 = st.slider('Terminal low frequency (Hz)', value=10., min_value=1., max_value=240., step=1., format="%.1f")
 
 with col200:    
-    f2 = st.slider('Select terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
+    f2 = st.slider('Terminal high frequency (Hz)', value=40., min_value=1., max_value=240., step=1., format="%.1f")
     
 with col300:   
     T = st.slider('Duration of input signal (s)', value=7., min_value=5., max_value=10., step=1., format="%.1f")
