@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.signal import hilbert
 import math
+style = "<style>h2 {text-align: center;}</style>"
+st.markdown(style, unsafe_allow_html=True)
 
 st.set_page_config(layout="wide")
 
