@@ -163,11 +163,11 @@ plt.fill_betweenx(x1, y2pos, 0,  color='navy', alpha=.6)
 plt.gca().invert_yaxis()
 
 with col2:
-    st.subheader('     Reflectivity')
+    st.subheader('#     Reflectivity')
     st.pyplot(fig1) 
 
 with col3:
-    st.subheader('     Synthetic trace')
+    st.subheader('#     Synthetic trace')
     st.pyplot(fig2)
 
 
