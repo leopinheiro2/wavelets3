@@ -43,7 +43,7 @@ with col100:
          f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")   
 with col200:
         phi = st.slider('Phase rotation angle (deg)', value=0.0, min_value=0., max_value=360., step=45., format="%.1f")
-with col1300:
+with col300:
     envelope = st.checkbox('Envelope')    
 
 
