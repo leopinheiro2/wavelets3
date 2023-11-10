@@ -10,7 +10,7 @@ st.set_page_config(layout="wide")
 
 pi = math.pi
 
-st.title('Ricker wavelet with synthetic trace Nov 7, 2023')
+st.title('Ricker wavelet with synthetic trace')
 st.text('Select model parameters')
 
 col10, col20 = st.columns(2)
@@ -33,12 +33,12 @@ def ricker(f, length=0.512, dt=0.001):
     y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
     return t, y
 
+st.text('Select wavelet parameters')
+st.latex(r'''
+Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
+''') 
 col1, col2, col3 = st.columns(3)
 with col1:
-    
-    st.latex(r'''
-    Ricker(t) = (1-2\pi^2 f^2 t^2)e^{-\pi^2 f^2 t^2}
-    ''') 
     f = st.slider('Select wavelet frequency from [1, 240] Hz', value=30., min_value=1., max_value=240., step=1., format="%.1f")
 
 t, y = ricker (f)
